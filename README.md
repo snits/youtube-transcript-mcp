@@ -12,10 +12,21 @@ A reliable Model Context Protocol server for extracting YouTube video transcript
 
 ## Installation
 
+### Using pipx (recommended)
+```bash
+pipx install .
+```
+
+### Using pip
+```bash
+pip install .
+```
+
+### Development Installation
 ```bash
 python3 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install -e .
 ```
 
 ## Usage
@@ -26,16 +37,21 @@ Add to your Claude Code configuration:
 ```json
 {
   "youtube-transcript-reliable": {
-    "command": "python",
-    "args": ["/path/to/youtube-transcript-mcp/src/server.py"]
+    "command": "youtube-transcript-mcp"
   }
 }
 ```
 
 ### Available Tools
 
-- `get_transcript(url, lang="en")` - Extract transcript from YouTube video
-- `list_transcripts(url)` - List all available transcript languages
+- **`get_transcript(url, lang="en", preserve_formatting=false)`** - Extract transcript from a YouTube video
+  - `url`: YouTube video URL or video ID (e.g., 'https://youtube.com/watch?v=abc123' or 'abc123') 
+  - `lang`: Preferred language code (e.g., 'en', 'de', 'fr'). Defaults to 'en'
+  - `preserve_formatting`: Keep HTML formatting tags like `<i>`, `<b>`. Defaults to false
+  
+- **`list_transcripts(url)`** - List all available transcript languages for a YouTube video
+  - `url`: YouTube video URL or video ID
+  - Useful for debugging transcript availability
 
 ## Development
 
