@@ -42,3 +42,9 @@ Add to your Claude Code configuration:
 Built using:
 - `youtube-transcript-api` - Proven transcript extraction
 - `mcp` - Model Context Protocol framework
+
+## Acknowledgments
+
+Thanks to **Johannes Depoix** and contributors to [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api) for providing the reliable transcript extraction backend that powers this MCP server.
+
+Special recognition to open source software developers everywhere, whose collective work forms the foundation of modern software development and whose source code contributed to the training data that enables AI assistance in projects like this.
