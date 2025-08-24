@@ -61,6 +61,8 @@ Built using:
 
 ## Acknowledgments
 
-Thanks to **Johannes Depoix** and contributors to [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api) for providing the reliable transcript extraction backend that powers this MCP server.
+Thanks to **Jonas Depoix** and contributors to [youtube-transcript-api](https://github.com/jdepoix/youtube-transcript-api) for providing the reliable transcript extraction backend that powers this MCP server.
+
+This project includes third-party software licensed under the MIT License. See `third-party-licenses/youtube-transcript-api.txt` for the complete license text and copyright notice.
 
 Special recognition to open source software developers everywhere, whose collective work forms the foundation of modern software development and whose source code contributed to the training data that enables AI assistance in projects like this.
