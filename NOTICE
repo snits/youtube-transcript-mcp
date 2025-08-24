@@ -1,0 +1,30 @@
+YouTube Transcript MCP
+Copyright (c) 2025 Jerry Snitselaar
+
+This software includes third-party software under the following licenses:
+
+================================================================================
+
+youtube-transcript-api
+https://github.com/jdepoix/youtube-transcript-api
+MIT License
+Copyright (c) 2018 Jonas Depoix
+
+================================================================================
+
+Model Context Protocol (mcp)
+https://github.com/modelcontextprotocol/python-sdk
+MIT License  
+Copyright (c) 2024 Anthropic, PBC
+
+================================================================================
+
+Pydantic
+https://github.com/pydantic/pydantic
+The MIT License (MIT)
+Copyright (c) 2017 to present Pydantic Services Inc. and individual contributors.
+
+================================================================================
+
+All third-party licenses are included in the third-party-licenses/ directory.
+For complete license texts, see the individual files in that directory.
