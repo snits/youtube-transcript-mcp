@@ -1,6 +1,9 @@
+youtube-transcript-api
+https://github.com/jdepoix/youtube-transcript-api
+
 MIT License
 
-Copyright (c) 2025 Jerry Snitselaar
+Copyright (c) 2018 Jonas Depoix
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
