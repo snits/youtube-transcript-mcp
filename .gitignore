@@ -56,3 +56,5 @@ Thumbs.db
 
 # Claude agent configurations (tracked in separate repos)
 .claude/
+.serena/
+
