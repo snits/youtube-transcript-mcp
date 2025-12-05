@@ -8,8 +8,11 @@ Built using the proven youtube-transcript-api library.
 """
 
 import asyncio
+import json
 import re
 import sys
+import tempfile
+from pathlib import Path
 from typing import List, Dict, Any, Optional
 from urllib.parse import urlparse, parse_qs
 
@@ -196,6 +199,10 @@ async def get_transcript(arguments: Dict[str, Any]):
                 "segments": segments,
             }
 
+            # Write to temp file
+            temp_path = Path(tempfile.gettempdir()) / f"youtube-transcript-{video_id}.json"
+            temp_path.write_text(json.dumps(response, indent=2))
+
             result_text = f"Successfully extracted transcript for video {video_id}\n"
             result_text += f"Language: {fetched.language} ({fetched.language_code})\n"
             result_text += f"Generated: {fetched.is_generated}\n"
@@ -210,7 +217,7 @@ async def get_transcript(arguments: Dict[str, Any]):
             if len(segments) > 3:
                 result_text += f"... ({len(segments) - 3} more segments)\n"
 
-            result_text += f"\nFull transcript JSON:\n{response}"
+            result_text += f"\nFull transcript saved to: {temp_path}"
 
             return [TextContent(type="text", text=result_text)]
 
