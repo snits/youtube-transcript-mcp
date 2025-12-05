@@ -93,7 +93,7 @@ async def handle_list_tools() -> List[Tool]:
     return [
         Tool(
             name="get_transcript",
-            description="Extract transcript from a YouTube video. Handles various URL formats and provides detailed error messages.",
+            description="Extract transcript from a YouTube video. Handles various URL formats and provides detailed error messages. Full transcript is saved to a temp file to reduce context usage.",
             inputSchema={
                 "type": "object",
                 "properties": {
