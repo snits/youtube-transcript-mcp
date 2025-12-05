@@ -49,3 +49,30 @@ async def test_transcript_saved_to_temp_file(mock_transcript):
             # Cleanup even if assertions fail
             if temp_file.exists():
                 temp_file.unlink()
+
+
+@pytest.mark.asyncio
+async def test_response_contains_file_path_not_json(mock_transcript):
+    """Verify response text includes file path, not full JSON."""
+    from youtube_transcript_mcp.server import get_transcript
+
+    with patch("youtube_transcript_mcp.server.YouTubeTranscriptApi") as mock_api:
+        mock_api.return_value.fetch.return_value = mock_transcript
+
+        result = await get_transcript({"url": "test123video"})
+
+        response_text = result[0].text
+
+        temp_file = Path(tempfile.gettempdir()) / "youtube-transcript-test123video.json"
+
+        try:
+            # Should contain file path
+            assert "Full transcript saved to:" in response_text
+            assert "youtube-transcript-test123video.json" in response_text
+
+            # Should NOT contain the full segments array inline
+            assert '"segments":' not in response_text
+        finally:
+            # Cleanup even if assertions fail
+            if temp_file.exists():
+                temp_file.unlink()
