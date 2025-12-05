@@ -31,18 +31,18 @@ async def test_transcript_saved_to_temp_file(mock_transcript):
     with patch("youtube_transcript_mcp.server.YouTubeTranscriptApi") as mock_api:
         mock_api.return_value.fetch.return_value = mock_transcript
 
-        result = await get_transcript({"url": "test123video"})
+        result = await get_transcript({"url": "test1234567"})
 
         # Check temp file exists
         temp_dir = Path(tempfile.gettempdir())
-        temp_file = temp_dir / "youtube-transcript-test123video.json"
+        temp_file = temp_dir / "youtube-transcript-test1234567.json"
 
         try:
             assert temp_file.exists(), f"Expected temp file at {temp_file}"
 
             # Check file contains valid JSON with expected structure
             content = json.loads(temp_file.read_text())
-            assert content["video_id"] == "test123video"
+            assert content["video_id"] == "test1234567"
             assert content["language"] == "English"
             assert "segments" in content
         finally:
@@ -59,16 +59,16 @@ async def test_response_contains_file_path_not_json(mock_transcript):
     with patch("youtube_transcript_mcp.server.YouTubeTranscriptApi") as mock_api:
         mock_api.return_value.fetch.return_value = mock_transcript
 
-        result = await get_transcript({"url": "test123video"})
+        result = await get_transcript({"url": "test1234567"})
 
         response_text = result[0].text
 
-        temp_file = Path(tempfile.gettempdir()) / "youtube-transcript-test123video.json"
+        temp_file = Path(tempfile.gettempdir()) / "youtube-transcript-test1234567.json"
 
         try:
             # Should contain file path
             assert "Full transcript saved to:" in response_text
-            assert "youtube-transcript-test123video.json" in response_text
+            assert "youtube-transcript-test1234567.json" in response_text
 
             # Should NOT contain the full segments array inline
             assert '"segments":' not in response_text
