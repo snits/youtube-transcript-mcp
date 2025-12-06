@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "youtube-transcript-mcp"
-version = "0.2.0"
+version = "0.3.0"
 description = "A reliable Model Context Protocol server for extracting YouTube video transcripts"
 authors = [{name = "Jerry Snitselaar", email = "dev@snitselaar.org"}]
 license = {text = "MIT"}
