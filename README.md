@@ -36,7 +36,7 @@ Add to your Claude Code configuration:
 
 ```json
 {
-  "youtube-transcript-reliable": {
+  "youtube-transcript": {
     "command": "youtube-transcript-mcp"
   }
 }
