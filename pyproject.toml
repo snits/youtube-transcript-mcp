@@ -21,9 +21,9 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 dependencies = [
-    "youtube-transcript-api==1.2.2",
-    "mcp==1.1.2",
-    "pydantic==2.8.2",
+    "youtube-transcript-api>=1.2.2",
+    "mcp>=1.1.2",
+    "pydantic>=2.8.2",
 ]
 
 [project.urls]
